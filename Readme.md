@@ -9,6 +9,8 @@ This is code to support the medium paper of the same name.
 
 The file open3dtest.py is meant to be used in VS Code, in jupyter interactive mode.
 
+*This code is simply an instructive, proof-of-concept.    (Much) more work is required to take this to production.*
+
 
 ## Getting started
 
