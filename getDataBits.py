@@ -11,28 +11,6 @@ getDataBits.py
     Note that, for the 3D bounding box, we're setting the pallet of interest at 0,0,0.
 
     btw, I'm using the Synthetic Data Recorder function in a static mode to get this data.
-
-Needs:
-- situations
-    - fine pallet
-    - pallet too close to something
-    - pallet w/ something in front of it, e.g., safety cone
-    - pallen leaning
-    - pallet w/ fallen down payload - for fun picture
-
-Cases to test:
-1 - Within a bounding box, say 10cm from the edge of the pallet
-    - any extension to outside bounding box is bad
-2 - Nothing in front of pallet
-3 - Leaning
-    3a - Not leaning too far to the left or right
-    3b - Not leaning too far forward or back
-
-Assumptions:
-- pallet in known position
-- pallet is a Euro 3  1200mm x 1000mm x 211mm
-    - Euro 1 is 1200mm x 800mm x 144mm
-
 '''
 
 from pathlib import Path
@@ -124,7 +102,7 @@ def getDepthImage(fldr):
     depthImg = o3d.geometry.Image(npyDepth)
     return depthImg
 
-
+## Testing
 if False:
     import matplotlib.pyplot as plt
     npyData = getNpyDepth(testFldr)
@@ -201,8 +179,6 @@ if False:
     twoDbboxs,threeDbboxs = getClassNumbers(testFldr)
     print("twoDbboxs", len(twoDbboxs))
     print("threeDbboxs", len(threeDbboxs))
-
-
 
 
 #%%

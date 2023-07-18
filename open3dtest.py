@@ -1,13 +1,7 @@
 #%%
 
 '''
-See the Readme.txt
-
-To start though, install a conda environment using:
-    conda env create -f environment.yml
-
-Then, activate it:
-    conda activate stability
+See the Readme.md to set the conda environment.
 
 This script is meant to be run inside of VS Code, similar to a Jupyter notebook.
 '''
@@ -26,7 +20,7 @@ from getDataBits import *     # our helper file
 
 '''
 Build a point cloud from a data set
-- the fldr specifies the data set in the simData folder
+- the 'fldr' specifies the data set in the simData folder
 '''
 def getPointCloud(fldr):
     # XYZ point cloud
@@ -62,6 +56,7 @@ def getRects(testFldr):
   pallet3DLocation = get3DPalletAtOrigin(threeDbboxs) # pal3Dbbox,lDepth,palWidth,palHeight,threeDXForm
   pal3Dbbox = pallet3DLocation[0] # x_min,y_min,z_min,x_max,y_max,z_max
   # btw, X and Y are interchanged in the Isaac Sim data
+  # other 'funk' is that Y grows downward.   
   yMin = pal3Dbbox[0] / 100.0   # Isaac Sim operates in cm 
   xMin = pal3Dbbox[1] / 100.0
   zMin = pal3Dbbox[2] / 100.0
@@ -108,6 +103,7 @@ def getRects(testFldr):
   # Return the bounds
   return [baseMin,baseMax],[palletMin,palletMax],[palSafetyMin,palSafetyMax],[inFrontMin,inFrontMax],[payloadMin,payloadMax]  
 
+## Testing
 if False:
   testFldr = tstFldrs[2]  # 5 leans
 
@@ -198,7 +194,7 @@ correctAnswers = [[False,False],
                   [False,True],]     # safety cone in front
 
 ## This is the full testing for the point cloud cases
-if False:
+if True:
   # do tests and validate
   for i in range(9):
     b12,b3 = test123(i)
@@ -217,30 +213,7 @@ First, we need a view of the pallet from the front, followed by the side (noting
 that we'll probably only see the front of the pallet, but that's ok).
 '''
 
-# testN = 1
-
-# testFldr = tstFldrs[testN]
-# pc = getPointCloud(testFldr)
-
-# base,pallet,safetyBounds,inFrontBounds,payloadBounds = getRects(testFldr)
-
-# pcPayload = pc.crop(o3d.geometry.AxisAlignedBoundingBox(payloadBounds[0],payloadBounds[1]))
-# # o3d.visualization.draw_geometries_with_editing([pcPayload])
-
-
-
-
-
-# pts = np.asarray(pcPayload.points)
-
-# # = o3d.utility.Vector3dVector(np.asarray(pcPayload.points) - np.asarray([0.0,0.0,0.0]))
-
-
-# xzpts = np.delete(pts,1,1)
-# yzpts = np.delete(pts,0,1)
-
-
-imgSize = 256
+imgSize = 256   # size of image - small enough that we tend to fill all needed pixels.
 
 def castPCto2D(pts):
   npImg = np.zeros((imgSize,imgSize),dtype=np.uint8) 

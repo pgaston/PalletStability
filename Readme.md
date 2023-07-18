@@ -12,10 +12,9 @@ The file open3dtest.py is meant to be used in VS Code, in jupyter interactive mo
 
 ## Getting started
 
-Create the conda stability environment
+Create the conda 'stability' environment.    Then, in VS Code set that conda environment to be active - 'Python: Select Interpreter'.
 
 ```
 conda env create -f environment.yml
-conda activate stability
 ```
 
