@@ -16,5 +16,6 @@ Create the conda stability environment
 
 ```
 conda env create -f environment.yml
+conda activate stability
 ```
 
