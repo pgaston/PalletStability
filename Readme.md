@@ -14,5 +14,7 @@ The file open3dtest.py is meant to be used in VS Code, in jupyter interactive mo
 
 Create the conda stability environment
 
-'''conda env create -f environment.yml'''
+'''
+conda env create -f environment.yml
+'''
 
