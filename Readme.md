@@ -1,7 +1,7 @@
 # Detecting Pallet Payload Instability
 ### or Whoops, the autonomous forklift just dumped a load on the floor!
 
-This is code to support the medium paper of the same name.
+This is code to support the medium paper of the same name -- https://medium.com/@peter.gaston/detecting-pallet-payload-instability-10b254d4055a
 
 ![A tipping pallet](/images/rgb_0000.png)
 
